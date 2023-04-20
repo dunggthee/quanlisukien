@@ -30,7 +30,7 @@ $error="Something went wrong . Please try again.";
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
+        <meta charset="utf-8">
         <title>Thể Loại| Thêm Thể Loại</title>
 
         <!-- App css -->

@@ -45,7 +45,7 @@ $error="Old Password not match !!";
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
+        <meta charset="utf-8">
         <title>TNTECH | Đổi Mật Khẩu</title>
 
         <!-- App css -->

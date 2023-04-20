@@ -38,12 +38,12 @@ echo "<script>alert('User not registered with us');</script>";
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="News Portal.">
+        <meta name="description" content="TNTECH.">
         <meta name="author" content="PHPGurukul">
 
 
         <!-- App title -->
-        <title>News Portal | Admin Panel</title>
+        <title>TNTECH | Admin Panel</title>
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
