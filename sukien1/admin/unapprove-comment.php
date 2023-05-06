@@ -137,7 +137,7 @@ if($_GET['action']=='del' && $_GET['rid'])
                                                         </thead>
                                                         <tbody>
 <?php 
-$query=mysqli_query($con,"Select tblcomments.id,  tblcomments.name,tblcomments.email,tblcomments.postingDate,tblcomments.comment,tblposts.id as postid,tblposts.PostTitle from  tblcomments join tblposts on tblposts.id=tblcomments.postId where tblcomments.status=0");
+$query=mysqli_query($con,"Select tblcomments.id, tblcomments.name,tblcomments.email,tblcomments.postingDate,tblcomments.comment,tblposts.id as postid,tblposts.PostTitle from  tblcomments join tblposts on tblposts.id=tblcomments.postId where tblcomments.status=0");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {

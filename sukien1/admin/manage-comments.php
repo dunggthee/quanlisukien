@@ -150,7 +150,7 @@ while($row=mysqli_fetch_array($query))
 <td><?php echo htmlentities($row['comment']);?></td>
 <td><?php $st=$row['status'];
 if($st=='0'):
-echo "Wating for approval";
+echo "Watting for approval";
 else:
 echo "Approved";
 endif;

@@ -2,32 +2,42 @@
 session_start();
 include('includes/config.php');
 //Genrating CSRF Token
-if (empty($_SESSION['token'])) {
- $_SESSION['token'] = bin2hex(random_bytes(32));
-}
 
-if(isset($_POST['submit']))
-{
-  //Verifying CSRF Token
-if (!empty($_POST['csrftoken'])) {
-    if (hash_equals($_SESSION['token'], $_POST['csrftoken'])) {
-$name=$_POST['name'];
-$email=$_POST['email'];
-$comment=$_POST['comment'];
-$postid=intval($_GET['nid']);
+if (isset($_POST['comment'])):
+  $content=$_POST['comment'];
 $st1='0';
-$query=mysqli_query($con,"insert into tblcomments(postId,name,email,comment,status) values('$postid','$name','$email','$comment','$st1')");
-if($query):
-  echo "<script>alert('comment successfully submit. Comment will be display after admin review ');</script>";
-  unset($_SESSION['token']);
-else :
- echo "<script>alert('Something went wrong. Please try again.');</script>";  
 
-endif;
+  if (isset($_SESSION['login'])):
+    $postid=intval($_GET['nid']);
+    $memberid=mysqli_fetch_array($con->query("SELECT * FROM tblnv WHERE NvUserName='".$_SESSION['login']."'"));
+    $memberid=$memberid['NvName'];
+    $memberemail=mysqli_fetch_array($con->query("SELECT * FROM tblnv WHERE NvUserName='".$_SESSION['login']."'"));
+    $memberemail=$memberemail['NvEmailId'];
+    $con->query("INSERT into tblcomments(name,postId,email,comment,postingDate,status) values('$memberid',$postid,'$memberemail','$content',now(),'$st1')");
+    echo "<script>alert('Đã bình luận thành công')</script>";
+    endif;
+  endif;
+// if (empty($_SESSION['token'])) {
+//  $_SESSION['token'] = bin2hex(random_bytes(32));
+// }
 
-}
-}
-}
+// if(isset($_POST['submit']))
+// {
+//   //Verifying CSRF Token
+// if (!empty($_POST['csrftoken'])) {
+//     if (hash_equals($_SESSION['token'], $_POST['csrftoken'])) {
+// $query=mysqli_query($con,"insert into tblcomments(postId,name,email,comment,status) values('$postid','$email','$content','$st1')");
+// if($query):
+//   echo "<script>alert('comment successfully submit. Comment will be display after admin review ');</script>";
+//   unset($_SESSION['token']);
+// else :
+//  echo "<script>alert('Something went wrong. Please try again.');</script>";  
+
+// endif;
+
+// }
+// }
+// }
 ?>
 
 <!DOCTYPE html>
@@ -113,15 +123,7 @@ $pt=$row['postdetails'];
             <h5 class="card-header">Để Lại Ý Kiến:</h5>
             <div class="card-body">
               <form name="Comment" method="post">
-      <input type="hidden" name="csrftoken" value="<?php echo htmlentities($_SESSION['token']); ?>" />
- <div class="form-group">
-<input type="text" name="name" class="form-control" placeholder="Nhập Họ Và Tên " required>
-</div>
-
- <div class="form-group">
- <input type="email" name="email" class="form-control" placeholder="Nhập Email" required>
- </div>
-
+      <!-- <input type="hidden" name="csrftoken" value="<?php echo htmlentities($_SESSION['token']); ?>" /> -->
 
                 <div class="form-group">
                   <textarea class="form-control" name="comment" rows="3" placeholder="Ý Kiến" required></textarea>

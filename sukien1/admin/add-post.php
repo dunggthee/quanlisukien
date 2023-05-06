@@ -162,7 +162,7 @@ function getSubCat(val) {
                             <div class="col-md-10 col-md-offset-1">
                                 <div class="p-6">
                                     <div class="">
-<form name="addpost" method="post" enctype="multipart/form-data">
+<form name="addpost" method="post" enctype="multipart/form-data" action="sendmail.php">
  <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Tên Nội Dung</label>
 <input type="text" class="form-control" id="posttitle" name="posttitle" placeholder="Enter title" required>
@@ -214,7 +214,7 @@ while($result=mysqli_fetch_array($ret))
 </div>
 
 
-<button type="submit" name="submit" class="btn btn-success waves-effect waves-light">Lưu Và Đăng</button>
+<button type="submit"  name="submit" value="submit" class="btn btn-success waves-effect waves-light">Lưu Và Đăng</button>
  <button type="button" class="btn btn-danger waves-effect waves-light">Huỷ </button>
                                         </form>
                                     </div>
