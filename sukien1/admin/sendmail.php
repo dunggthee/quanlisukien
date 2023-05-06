@@ -27,7 +27,7 @@ $mail->Port = 465; // Cổng kết nối SMTP là 465
 $mail->setFrom('tntech.mailtest@gmail.com', 'TNTech');
 $mail->addReplyTo('tntech.mailtest@gmail.com', 'Manager');
 // $mail->addAttachment('assets/images/mail.png', ); // Add attachments
-$mail->Subject = 'TNTech'; // Tiêu đề
+$mail->Subject = 'Thong bao tin moi tu TNTECH'; // Tiêu đề
 $mail->Body = "▶ $bodyofmail ◀
 • Địa chỉ: Tầng 21, TNR Tower, 54A Nguyễn Chí Thanh, Đống Đa, Hà Nội
 • Điện thoại: (024) 7303 3556
