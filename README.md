@@ -37,3 +37,7 @@ Cách chạy Dự án Quản Lí Sự Kiện
 Thông tin đăng nhập cho bảng quản trị:
 tên người dùng / email: admin / mahacdavid@gmail.com (sử dụng tên bất kỳ)
 Mật khẩu: 213051
+
+tài khoản nhân viên:
+username: nv
+pass: 213051
